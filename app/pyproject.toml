@@ -1,0 +1,18 @@
+[project]
+name = "table-radar"
+version = "0.1.0"
+description = "Explainable comparison of three synthetic Excel tables"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi==0.165.0", "uvicorn==0.54.0", "pandas==3.1.1",
+  "openpyxl==3.1.5", "PyYAML==6.0.3", "rapidfuzz==3.14.6", "python-multipart==0.0.34",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0", "httpx==0.28.1", "ruff==0.17.6"]
+
+[tool.fastapi]
+entrypoint = "radar.main:app"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Сверка связей</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Playfair+Display:wght@500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+  <script defer src="/__pult/tracker.js"></script>
+</head>
+<body>
+  <header class="top">
+    <svg width="38" height="26" viewBox="0 0 38 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="none" stroke="#9B3A1A" stroke-width="3"/><circle cx="25" cy="13" r="11" fill="none" stroke="#C8643F" stroke-width="3"/></svg>
+    <b>Сверка связей</b><span>Участники процедур и близкие лица сотрудников · демо на синтетических данных</span>
+  </header>
+  <nav class="st" aria-label="Этапы сверки">
+    <div class="on" data-step="input" aria-current="step"><b>Вход</b>Три файла .xlsx</div>
+    <div data-step="processing"><b>Обработка</b>Телефон, адрес, ФИО</div>
+    <div data-step="result"><b>Сигнал</b>Карточка с причиной</div>
+    <div data-step="review"><b>Человек</b>Решает, нужна ли проверка</div>
+  </nav>
+  <main class="m">
+    <section id="upload-screen" aria-labelledby="upload-title">
+      <h1 id="upload-title">Сравнение участников и близких лиц</h1>
+      <p class="intro">Загрузите три файла .xlsx — в каждом один лист с заголовками. Приложение найдёт участников, чьи данные совпали с данными близких лиц сотрудников той же процедуры.</p>
+      <form id="check-form">
+        <div class="g" id="uploads"></div>
+        <div class="note">Телефон и адрес в таблице 1 относятся к <b>участнику</b>. В карточках они так и подписаны.</div>
+        <section id="errors" class="error-panel" role="alert" hidden></section>
+        <div class="actions"><button type="submit" class="pb" id="compare" disabled>Сравнить</button><span id="file-status" class="muted" role="status">Выберите три файла</span></div>
+      </form>
+    </section>
+    <section id="result-screen" aria-labelledby="result-title" hidden>
+      <div class="result-heading"><h1 id="result-title" tabindex="-1">Результат сравнения</h1><button type="button" class="ob" id="back">Новая сверка</button></div>
+      <p class="intro">Карточки идут по убыванию баллов и помогают выбрать, с чего начать ручную проверку.</p>
+      <div id="summary" class="g summary"></div>
+      <div id="empty" class="c empty" hidden><h2>Совпадений по заданным правилам не найдено</h2><p>Количество прочитанных и пропущенных строк показано выше. Для новой проверки замените файлы.</p></div>
+      <div id="alerts"></div>
+      <section id="warnings" class="c" hidden><h2>Пропущенные строки</h2><ul id="warning-list"></ul></section>
+      <p id="decision-note" class="muted" hidden>Отметки проверяющего сохраняются до новой сверки или перезагрузки страницы.</p>
+    </section>
+    <noscript><p class="note">Для выбора файлов и сравнения включите JavaScript в браузере.</p></noscript>
+  </main>
+</body>
+</html>

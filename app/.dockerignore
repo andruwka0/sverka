@@ -1,0 +1,11 @@
+**
+!radar/
+!radar/**
+!frontend/
+!frontend/**
+!rules.yaml
+!requirements.runtime.txt
+!Dockerfile
+**/__pycache__
+**/.DS_Store
+**/.env*

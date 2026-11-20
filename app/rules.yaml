@@ -1,0 +1,17 @@
+rules:
+  - id: R1_PHONE_MATCH
+    description: "Совпадение телефона участника и близкого лица"
+    weight: 50
+    threshold: "exact"
+  - id: R2_ADDRESS_MATCH
+    description: "Совпадение адреса регистрации/офиса"
+    weight: 30
+    threshold: "fuzzy_0.9"
+  - id: R3_NAME_FUZZY
+    description: "Нечёткое совпадение ФИО (возможный номинал)"
+    weight: 20
+    threshold: "jaro_winkler_0.92"
+alert_levels:
+  high: ">= 50"
+  medium: ">= 30"
+  low: "< 30"
